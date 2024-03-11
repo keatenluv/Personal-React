@@ -1,5 +1,5 @@
 import './css/Board.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface contentDict {
         [key: string]: string,
@@ -11,6 +11,7 @@ interface contentDict {
 export default function Board() {
 
     const [head, setHead] = useState([0, 0])
+    const [snakeBoard, setSnakeBoard] = useState<number[][]>([]);
 
     // Width and Height of the board
     const size = 16;
@@ -27,18 +28,15 @@ export default function Board() {
         2: 'food-square'
     }
 
-    // Determine the starting position of the player
-    const startPosition = () => {
+
+    useEffect(() => {
         const x: number = Math.floor(Math.random() * size);
         const y: number = Math.floor(Math.random() * size);
 
         board[y][x] = 1;
         setHead([y, x])
-    }
+    }, []);
 
-
-
-    startPosition()
 
     return (
         <div className='board'>
