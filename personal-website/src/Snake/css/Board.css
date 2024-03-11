@@ -1,0 +1,16 @@
+.board {
+    height: auto;
+    border: 7.5px solid black;
+}
+
+.board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.empty-square {
+    height: 50px;
+    width: 50px;
+    border: 2px solid green;
+    background-color: grey;
+}
