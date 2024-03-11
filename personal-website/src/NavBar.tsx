@@ -1,4 +1,5 @@
-import './navbar.css'
+import './navbar.css';
+import { Outlet, Link } from "react-router-dom";
 
 export default function NavBar() {
     return (
@@ -6,7 +7,9 @@ export default function NavBar() {
             <h1>Hello there</h1>
             <div>
                 <ul>
-                    <li>Snake</li>
+                    <li>
+                        <Link to={`snake`}>Snake</Link>
+                    </li>
                 </ul>
             </div>
         </div>
