@@ -36,7 +36,7 @@ export default function Loans() {
                     duration={100} 
                 />
             )}
-            
+
             <div className="loan-input">
                 <div className="header">
                     <TypeAnimation

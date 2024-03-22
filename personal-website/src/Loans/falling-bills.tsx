@@ -10,8 +10,10 @@ const FallingBill = ({ duration, imgCount, idx }: { duration: number, imgCount: 
 
     useEffect(() => {
         const interval = setInterval(() => {
-            console.log(top)
-            if (top >= 200) {
+            const element = document.getElementById(idx.toLocaleString());
+            const rect = element?.getBoundingClientRect();
+            console.log(rect?.top)
+            if (rect?.top! >= window.innerHeight) {
                 clearInterval(interval);
                 setTop(-10)
                 setTran('none');
@@ -28,13 +30,14 @@ const FallingBill = ({ duration, imgCount, idx }: { duration: number, imgCount: 
     return (
         <img
             className='falling-bill'
+            id={idx.toLocaleString()}
             src={png}
             alt='Falling Bill'
             style={{
                 position: 'absolute',
                 top: `${top}%`,
                 left: `${left}%`,
-                width: '5%',
+                width: '6%',
                 transition: `${tran}`,
             }}
         />
