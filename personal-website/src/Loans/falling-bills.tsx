@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import png from './assets/100_bill.png';
 
-const FallingBill = ({ duration, imgCount, idx, onOutOfView }: { duration: number, imgCount: number, idx: number, onOutOfView: () => void}) => {
+const FallingBill = ({ duration, imgCount, idx }: { duration: number, imgCount: number, idx: number}) => {
     
-    const [top, setTop] = useState(-10 -(( idx % imgCount ) * 4 ));
+    const [top, setTop] = useState(-5 - (idx % 100) * (Math.random() * (4 - 2) + 2));
+    const [tran, setTran] = useState('none');
+    const [left, setLeft] = useState(Math.random() * 100)
 
 
     useEffect(() => {
         const interval = setInterval(() => {
             console.log(top)
-            if (top >= 30) {
+            if (top >= 200) {
                 clearInterval(interval);
-                onOutOfView();
+                setTop(-10)
+                setTran('none');
             } else {
                 setTop(prevTop => prevTop + 1);
+                setTran('5s');
+                setLeft(left + (Math.random() < .5 ? -1 : 1));
             }
         }, duration);
         return () => clearInterval(interval);
@@ -28,9 +33,9 @@ const FallingBill = ({ duration, imgCount, idx, onOutOfView }: { duration: numbe
             style={{
                 position: 'absolute',
                 top: `${top}%`,
-                left: `${Math.random() * 100}%`,
+                left: `${left}%`,
                 width: '5%',
-                transition: '5s',
+                transition: `${tran}`,
             }}
         />
     )

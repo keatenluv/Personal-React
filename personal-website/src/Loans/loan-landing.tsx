@@ -14,22 +14,7 @@ export default function Loans() {
 
     const [bills, setBills] = useState<Record<string, number>[]>([]);
     const imageCount = 100;
-    const imageDuration = 1000;
-    const screenHeigh = window.innerHeight;
 
-    const handleImageOutofView = () => {
-        setBills(prevBills => {
-            const newBills = [...prevBills];
-            newBills.shift();
-
-            const lastBill = newBills[newBills.length - 1];
-            newBills.push({
-                id: lastBill.id + 1,
-            });
-
-            return newBills
-        })
-    }
 
     useEffect(() => {
         const initialImages = Array.from({ length: imageCount }, (_, index) => ({
@@ -40,6 +25,7 @@ export default function Loans() {
         setBills(initialImages);
     }, [imageCount]);
 
+
     return (
         <div className="main">
             {bills.map((bill, index) =>
@@ -48,7 +34,6 @@ export default function Loans() {
                     imgCount = {imageCount}
                     idx = {index}
                     duration={100} 
-                    onOutOfView={handleImageOutofView}
                 />
             )}
             
