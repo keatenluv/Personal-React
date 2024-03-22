@@ -10,6 +10,9 @@ export default function NavBar() {
                     <li>
                         <Link to={`snake`}>Snake</Link>
                     </li>
+                    <li>
+                        <Link to={'loans'}>Loans</Link>
+                    </li>
                 </ul>
             </div>
         </div>
