@@ -4,6 +4,7 @@ import App from './App.tsx'
 import ErrorPage from './Error Message/error-page.tsx'
 import Snake from './Snake/Snake.tsx'
 import Loans from './Loans/loan-landing.tsx'
+import DataForm from './Loans/data-input.tsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "loans",
     element: <Loans />
+  },
+  {
+    path: "loan-info",
+    element: <DataForm />
   },
 ]);
 

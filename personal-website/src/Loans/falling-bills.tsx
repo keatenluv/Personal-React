@@ -3,7 +3,7 @@ import png from './assets/100_bill.png';
 
 const FallingBill = ({ duration, imgCount, idx }: { duration: number, imgCount: number, idx: number}) => {
     
-    const [top, setTop] = useState(-5 - (idx % 100) * (Math.random() * (4 - 2) + 2));
+    const [top, setTop] = useState(-5 - (idx % 200) * (Math.random() * (4 - 2) + 2));
     const [tran, setTran] = useState('none');
     const [left, setLeft] = useState(Math.random() * 100)
 

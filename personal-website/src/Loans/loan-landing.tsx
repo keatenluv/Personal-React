@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import './css/loan-landing.css'
 import { TypeAnimation } from 'react-type-animation';
 import FallingBill from './falling-bills';
+import DataForm from './data-input';
+import { Outlet, Link } from "react-router-dom";
 import './assets/100_bill.png'
 
 
@@ -13,7 +15,7 @@ interface BigBills {
 export default function Loans() {
 
     const [bills, setBills] = useState<Record<string, number>[]>([]);
-    const imageCount = 100;
+    const imageCount = 200;
 
 
     useEffect(() => {
@@ -36,21 +38,23 @@ export default function Loans() {
                     duration={100} 
                 />
             )}
-
-            <div className="loan-input">
-                <div className="header">
-                    <TypeAnimation
-                        sequence={[
-                            'Reduce student loan interest today.'
-                        ]}
-                        speed={65}
-                        cursor={false}
-                    />
-                </div>
-                <div className="get-started">
-                        <button className="get-started-button">Get Started</button>
-                </div>
+            <div className="header">      
+                <TypeAnimation
+                    sequence={[
+                        'Reduce student loan interest'
+                    ]}
+                    speed={65}
+                    cursor={false}
+                />
             </div>
+            <div className="get-started">
+                <Link to={"/loan-info"}>
+                    <button className="get-started-button">Get Started</button>
+                </Link>
+            </div>
+            {/* <div className="loan-input">
+                
+            </div> */}
         </div>
     )
 }
