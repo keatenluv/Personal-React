@@ -14,6 +14,7 @@ body, html{
     margin: 0;
     background-color: black;
     flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 1;
 }
 
@@ -39,9 +40,11 @@ body, html{
 .header {
     top: 20vh;
     left: 45%;
-    height: 50%;
+    height: 10vh;
+    width: 100vw;;
     opacity: 100%;
     display: flex;
+    background-color: black;
     justify-content: center;
     align-items: center;
     font-size: 72px;
@@ -52,7 +55,10 @@ body, html{
 }
 
 .get-started {
-    height: 50%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes load-button {
@@ -69,21 +75,21 @@ body, html{
 .get-started-button {
     border: none;
     border-radius: 20px;
-    font-size: 30px;
+    font-size: 75px;
     padding: 20px;
-    background-color: rgba(230, 184, 17, .9);
+    background-color: black;
+    color: #E6B84D;
     cursor: pointer;
     transition: .2s;
     animation-fill-mode: forwards;
     animation-name: load-button;
     animation-duration: 2s;
-    animation-delay: 1s;
     visibility: hidden;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .get-started-button:hover {
-    font-size: 35px;
+    font-size: 85px;
     padding: 25px;
     transform: translateY(-5px);
 }

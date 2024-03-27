@@ -39,22 +39,20 @@ export default function Loans() {
                 />
             )}
             <div className="header">      
-                <TypeAnimation
+                Reduce student loan interest
+                {/* <TypeAnimation
                     sequence={[
                         'Reduce student loan interest'
                     ]}
                     speed={65}
                     cursor={false}
-                />
+                /> */}
             </div>
             <div className="get-started">
                 <Link to={"/loan-info"}>
                     <button className="get-started-button">Get Started</button>
                 </Link>
             </div>
-            {/* <div className="loan-input">
-                
-            </div> */}
         </div>
     )
 }
