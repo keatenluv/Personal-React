@@ -16,6 +16,10 @@ export default function DataForm() {
     const min = 1;
     const max = 10**1000;
 
+    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        alert(event.currentTarget[0]);
+    }
+
     function modifyLoan(idx: number): void {
         let newLoans = [...loans];
 
@@ -50,7 +54,7 @@ export default function DataForm() {
         <div className='main-loan-input'>
             <div className='loan-info-container'>
                 <div className='form-container' id='form-container'>
-                    <form>
+                    <form onSubmit={onSubmit} id='loanForm'>
                         {Array.from({ length: numOfLoans }, (_, index) => (
                             <LoanInput key={index} index={index} min={min}/>
                         ))}
@@ -63,8 +67,10 @@ export default function DataForm() {
                     <button onClick={removeLoan}>
                         Remove Most recent loan
                     </button>
+                    <button form='loanForm' type='submit'>
+                        Submit
+                    </button>
                 </div>
-                
             </div>
         </div>
     )
@@ -80,11 +86,11 @@ function LoanInput({ index, min }: { index: number, min: number }) {
             <div className='loan-info'>
                 <div className='loan-section'>
                     <label htmlFor={`amount${index}`}>Amount:</label>
-                    <input type='number' id={`amount${index}`} name={`amount${index}`}/>
+                    <input type='text' id={`amount${index}`} name={`amount${index}`}/>
                 </div>
                 <div className='loan-section'>
                     <label htmlFor={`rate${index}`}>Intrest Rate:</label>
-                    <input type='number' id={`rate${index}`} name={`rate${index}`} min={min}></input>
+                    <input type='text' id={`rate${index}`} name={`rate${index}`} min={min}></input>
                 </div>
             </div>
             
